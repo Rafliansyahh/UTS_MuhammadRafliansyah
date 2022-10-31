@@ -11,6 +11,7 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
     Button btndaftar;
     EditText etnamalengkap;
+    EditText etnomorpendaftaran;
 
 
 
@@ -23,11 +24,13 @@ public class MainActivity extends AppCompatActivity {
 
         btndaftar = findViewById(R.id.btn_daftar);
         etnamalengkap = findViewById(R.id.et_namalengkap);
+        etnomorpendaftaran = findViewById(R.id.et_nomorpendaftaran);
 
         btndaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String nama = etnamalengkap.getText().toString();
+                Integer nomorpe
 
                     if (nama.trim().equals("")){
                         etnamalengkap.setError("Nama Harus Diisi");
@@ -37,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
                         daftar.putExtra("xNama", nama);
                         startActivity(daftar);
                     }
+
+
 
             }
         });
