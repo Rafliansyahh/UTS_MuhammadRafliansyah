@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                     else{
                         Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                         intent.putExtra("xNama", namalengkap);
-                        intent.putExtra("xNomor", nomorpendaftaran);  
+                        intent.putExtra("xNomor", nomorpendaftaran);
                         startActivity(intent);
                     }
 
