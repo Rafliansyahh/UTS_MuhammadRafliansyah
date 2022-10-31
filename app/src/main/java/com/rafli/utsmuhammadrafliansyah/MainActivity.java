@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
     Button btndaftar;
+    EditText etnamalengkap;
 
 
 
@@ -17,12 +19,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().setTitle("UTS Muhammad Rafliansyah");
+
         btndaftar = findViewById(R.id.btn_daftar);
+        etnamalengkap = findViewById(R.id.et_namalengkap);
+
         btndaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent daftar = new Intent(MainActivity.this, SecondActivity.class);
-                startActivity(daftar);
+                String nama = etnamalengkap.getText().toString();
+
+                    if (nama.trim().equals("")){
+                        etnamalengkap.setError("Nama Harus Diisi");
+                    }
+                    else {
+                        Intent daftar = new Intent(MainActivity.this, SecondActivity.class);
+                        daftar.putExtra("xNama", nama);
+                        startActivity(daftar);
+                    }
+
             }
         });
     }
