@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
-    TextView tvnama,tvnomor;
+    TextView tvnama,tvnomor,tvjalur;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,13 +17,13 @@ public class SecondActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("UTS Muhammad Rafliansyah");
 
-        tvnama = findViewById(R.id.tv_nama);
-        tvnomor = findViewById(R.id.tv_nomor);
+        tvnama = findViewById(R.id.tv_nama_second);
+        tvnomor = findViewById(R.id.tv_nomor_second);
+        tvjalur = findViewById(R.id.tv_jalur_second);
 
         Intent intent = getIntent();
-        String yNama = intent.getStringExtra("xNama");
-        String yNomor = intent.getStringExtra("XNomor");
-        tvnama.setText(yNama);
-        tvnomor.setText(yNomor);
+        tvnama.setText(intent.getStringExtra("xNama"));
+        tvnomor.setText(intent.getStringExtra("xNomor"));
+        tvjalur.setText(intent.getStringExtra("xJalur"));
     }
 }

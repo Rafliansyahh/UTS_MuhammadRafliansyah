@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     Button btndaftar;
@@ -16,9 +17,6 @@ public class MainActivity extends AppCompatActivity {
     String nomorpendaftaran,namalengkap;
     Spinner spjalur;
     CheckBox cbkonfirmasi;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,21 +34,29 @@ public class MainActivity extends AppCompatActivity {
         btndaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                namalengkap = etnamalengkap.getText().toString();
-                nomorpendaftaran = etnomorpendaftaran.getText().toString();
+                String nama_lengkap, nomor_pendaftaran, jalur_pendaftaran;
 
-                    if (namalengkap.trim().equals("")){
-                        etnamalengkap.setError("Nama Harus Diisi");
-                    }
-                    else if (nomorpendaftaran.trim().equals("")){
-                        etnomorpendaftaran.setError("Nomor Pendaftaran Harus Diisi");
-                    }
-                    else{
-                        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                        intent.putExtra("xNama", namalengkap);
-                        intent.putExtra("xNomor", nomorpendaftaran);
-                        startActivity(intent);
-                    }
+
+                nama_lengkap = etnamalengkap.getText().toString();
+                nomor_pendaftaran = etnomorpendaftaran.getText().toString();
+                jalur_pendaftaran = spjalur.getSelectedItem().toString();
+
+                if (nama_lengkap.trim().equals("")){
+                    etnamalengkap.setError("Nama Harus Diisi");
+                }
+                else if (nomor_pendaftaran.trim().equals("")){
+                    etnomorpendaftaran.setError("Nomor Pendaftaran Harus Diisi");
+                }
+                else if(!cbkonfirmasi.isChecked()){
+                    Toast.makeText(MainActivity.this,"Checkbox ini harus diisi",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                    intent.putExtra("xNama", nama_lengkap);
+                    intent.putExtra("xNomor", nomor_pendaftaran);
+                    intent.putExtra("xJalur", jalur_pendaftaran);
+                    startActivity(intent);
+                }
 
             }
         });

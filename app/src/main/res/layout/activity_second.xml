@@ -24,32 +24,34 @@
         android:layout_below="@id/tv_konfirmasi">
 
         <TextView
-            android:id="@+id/tv_nama"
+            android:id="@+id/tv_nama_second"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nama"
+            tools:text="Rafli"
             android:textStyle="bold"
             android:layout_below="@id/tv_konfirmasi"
             android:layout_marginTop="30dp"/>
 
         <TextView
-            android:id="@+id/tv_nomor"
+            android:id="@+id/tv_nomor_second"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nomor Pendaftaran"
+            tools:text="2224142"
             android:textStyle="bold"
             android:layout_below="@+id/tv_nama"
             android:layout_marginTop="30dp"/>
 
         <TextView
+            android:id="@+id/tv_jalur_second"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tes Tertulis"
+            tools:text="Rekomendasi"
             android:textStyle="bold"
-            android:layout_below="@id/tv_nomor"
+            android:layout_below="@id/tv_nomor_second"
             android:layout_marginTop="30dp"/>
+
     </TableLayout>
 
 
 
- </RelativeLayout>
+</RelativeLayout>
